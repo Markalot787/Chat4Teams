@@ -5,7 +5,7 @@ const roomsRoutes = require('./routes/roomsRoutes');
 const User = require('./models/User');
 const Message = require('./models/Message');
 // const rooms = require('./models/Rooms');
-// const rooms = ['general', 'tech', 'finance', 'crypto'];
+const rooms = ['general', 'tech', 'finance', 'crypto'];
 const cors = require('cors');
 
 app.use(express.urlencoded({ extended: true }));
