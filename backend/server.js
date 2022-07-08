@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes');
+const roomsRoutes = require('./routes/roomsRoutes');
 const User = require('./models/User');
 const Message = require('./models/Message');
-const rooms = ['general', 'tech', 'finance', 'crypto'];
+// const rooms = require('./models/Rooms');
+// const rooms = ['general', 'tech', 'finance', 'crypto'];
 const cors = require('cors');
 
 app.use(express.urlencoded({ extended: true }));
@@ -11,6 +13,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/users', userRoutes);
+app.use('/rooms', roomsRoutes);
+
 require('./connection');
 
 const server = require('http').createServer(app);

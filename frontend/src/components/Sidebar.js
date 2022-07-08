@@ -51,6 +51,8 @@ function Sidebar() {
 		setMembers(payload);
 	});
 
+	//function to push create a room
+
 	function getRooms() {
 		fetch('http://localhost:5001/rooms')
 			.then((res) => res.json())
@@ -76,7 +78,17 @@ function Sidebar() {
 	}
 	return (
 		<>
-			<h2>Available rooms</h2>
+			<h2>
+				Available rooms
+				<button
+					className="btn btn-primary"
+					onClick={() => {
+						socket.emit('create-room');
+					}}
+				>
+					Create a room
+				</button>
+			</h2>
 			<ListGroup>
 				{rooms.map((room, idx) => (
 					<ListGroup.Item
